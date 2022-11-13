@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --min-opacity: 0.5;
+  --max-opacity: 1;
+  --aqua: #ffc107 !important;
+  --black: #ffffff;
+  --body-color: rgb(255, 255, 255);
+}
+.form_container {
+  background-color: var(--body-color);
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form_container .form_center {
+    margin-top: 40px;
+    min-height: 96vh;
+    width: 83vw;
+    min-width: 760px;
+    display: flex;
+    /* box-shadow: 6px 6px 6px#918b85; */
+}
+
+/* left part of the page */
+.form_center .form_left_part {
+  width: 50%;
+  padding: 1rem;
+}
+
+/* right paft of the form */
+.form_center .form_right_part {
+  width: 50%;
+  background-color: var(--black);
+  padding: 1rem 1rem 1rem 4rem;
+  color: white;
+}
+
+/* right topp button */
+.uper_button {
+  width: 8rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  margin-left: auto;
+}
+.uper_button button {
+  border: none;
+  background-color: transparent;
+}
+.uper_button .first {
+  background-color: rgb(65, 63, 63);
+  color: white;
+  height: 100%;
+  width: 90%;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.uper_button .second {
+  background-color: var(--aqua);
+  color: white;
+  height: 100%;
+  width: 100%;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+/* end of right top button */
+
+/* sign in and sign up place */
+.sigin_and_signup p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  font-size: larger;
+  opacity: var(--min-opacity);
+}
+.sigin_and_signup p:nth-child(2) {
+  font-size: small;
+}
+.sigin_and_signup p:first-child:hover,
+.sigin_and_signup p:last-child:hover {
+  text-decoration: underline solid white 1px;
+  opacity: var(--max-opacity);
+  cursor: pointer;
+}
+/* end of signup button */
+
+/* form inputs */
+.form_input {
+  margin-right: 1rem;
+}
+.form_input label {
+  display: block;
+  text-transform: capitalize;
+  margin: 1rem 0 0.1rem 0;
+}
+.form_input input {
+  width: 100%;
+  background-color: transparent;
+  height: 2rem;
+  border: none;
+  outline: none;
+  border-bottom: solid rgb(11, 11, 11) 2px;
+  color: rgb(0, 0, 0);
+}
+/* end of form inputs */
+
+.signup-button {
+  margin-top: 30px;
+}
+
+/* down button */
+.signup-button button {
+  width: 8rem;
+  height: 50px;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  background-color: var(--aqua);
+  color: rgb(0, 0, 0);
+}
+.signup-button label {
+  margin-left: 1rem;
+  opacity: var(--min-opacity);
+}
+
+.signin_signin {
+  display: none;
+}
+
+/* end of down button */
+
+/* log in form */
+.reduce_gap {
+  margin: 7rem 0 3rem 0;
+}
+
+/* javascript css */

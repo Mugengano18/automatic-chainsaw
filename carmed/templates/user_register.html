@@ -138,7 +138,7 @@
 
             {% for message in messages %}
             <div class="alert alert-warning ">
-              <a class="close" href="#" data-dismiss="alert">×</a>
+              <a class="close" href="{% url 'login' %}" data-dismiss="alert">×</a>
               {{ message }}
             </div>
   

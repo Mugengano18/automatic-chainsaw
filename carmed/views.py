@@ -27,10 +27,9 @@ def signUser(request):
         pswd1 = request.POST['pswd1']
         pswd2 = request.POST['pswd2']
 
-        user_create = User.objects.create_user(username,pswd1)
+        user_create = User.objects.create_user(username, lname, pswd1)
         user_create.first_name = fname
         user_create.last_name = lname
-        
 
         user_create.save()
 
@@ -44,15 +43,13 @@ def loginUser(request):
     if request.user.is_authenticated:
         return redirect(reverse("home"))
     if request.method == 'POST':
-        username = request.POST['phone']
+        phone = request.POST['phone']
         pswd1 = request.POST['pswd1']
 
-        user_login = authenticate(username=username, password=pswd1)
-
-        if user_login is not None:
+        user_login = authenticate(username=phone, password=pswd1)
+        print(user_login)
+        if user_login:
             login(request, user_login)
-            request.session['phone'] = username
-            fname = user_login.first_name
             return redirect('home')
         else:
             messages.error(request, "Username or password incorrect!!")
@@ -64,3 +61,8 @@ def logoutUser(request):
     logout(request)
     messages.success(request, 'Logged out successfully!')
     return redirect('login')
+
+
+@login_required(login_url='login')
+def map(request):
+    return render(request, "map.html")

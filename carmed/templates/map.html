@@ -7,6 +7,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="keywords" />
     <meta content="" name="description" />
+
+
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,8 +59,8 @@
         <h2 class="m-0 text-warning">
           <img
             class="img-fluid me-2"
-            src="{% static 'img/logo-1.png' %}"
-            alt="logo"
+            src="{% static 'img/logo-1.png'%}"
+            alt=""
             style="width: 45px"
           />CARMEDIC
         </h2>
@@ -74,8 +76,8 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto py-4 py-lg-0">
           <a href="{% url 'home' %}" class="nav-item nav-link active">Home</a>
-          <a href="#about" class="nav-item nav-link">About</a>
-          <a href="#service" class="nav-item nav-link">Service</a>
+          <a href="{% url 'home' %}" class="nav-item nav-link">About</a>
+          <a href="{% url 'home' %}" class="nav-item nav-link">Service</a>
           {% if user.is_authenticated %}
           <a href="{% url 'logout' %}" class="nav-item nav-link">Logout</a>
           {% else %}
@@ -97,7 +99,6 @@
           </div>
           {% endif %}
           <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
-          
         </div>
         <div class="h-100 d-lg-inline-flex align-items-center d-none">
           <a
@@ -120,138 +121,8 @@
     </nav>
     <!-- Navbar End -->
 
-    <!-- Header Start -->
-    <div class="container-fluid hero-header bg-light mb-5">
-      <div class="container">
-        <div class="row g-5 align-items-center">
-          <div class="col-lg-6">
-            <h1 class="display-4 mb-3 animated slideInDown">
-              Travel Better With Car Medic
-            </h1>
-            <p class="animated slideInDown">
-              Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu
-              diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet
-              lorem sit clita duo justo magna dolore erat amet
-            </p>
-            <a
-              href="#about"
-              class="btn btn-warning py-3 px-4 animated slideInDown"
-              >Explore More</a
-            >
-          </div>
-          <div class="col-lg-6 animated fadeIn">
-            <img
-              class="img-fluid animated pulse infinite"
-              style="animation-duration: 3s"
-              src="{% static 'img/mechano-1.png'%}"
-              alt=""
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Header End -->
-
-    <!-- About Start -->
-    <div class="container-xxl py-5" id="about">
-      <div class="container">
-        <div class="row g-5 align-items-center">
-          <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-            <img
-              class="img-fluid"
-              src="{% static 'img/mechano-2.png'%}"
-              alt=""
-            />
-          </div>
-          <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-            <div class="h-100">
-              <h1 class="display-6">About Us</h1>
-              <p class="text-warning fs-5 mb-4">
-                The Most Trusted Car Repair Platform
-              </p>
-              <p>
-                Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit.
-                Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit,
-                sed stet lorem sit clita duo justo magna dolore erat amet
-              </p>
-              <p class="mb-4">
-                Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit.
-                Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit.
-              </p>
-              <div class="d-flex align-items-center mb-2">
-                <i
-                  class="fa fa-check bg-light text-warning btn-sm-square rounded-circle me-3 fw-bold"
-                ></i>
-                <span>Tempor erat elitr rebum at clita</span>
-              </div>
-              <div class="d-flex align-items-center mb-2">
-                <i
-                  class="fa fa-check bg-light text-warning btn-sm-square rounded-circle me-3 fw-bold"
-                ></i>
-                <span>Tempor erat elitr rebum at clita</span>
-              </div>
-              <div class="d-flex align-items-center mb-4">
-                <i
-                  class="fa fa-check bg-light text-warning btn-sm-square rounded-circle me-3 fw-bold"
-                ></i>
-                <span>Tempor erat elitr rebum at clita</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- About End -->
-
-    <!-- Service Start -->
-    <div class="container-xxl bg-light py-5 my-5" id="service">
-      <div class="container py-5">
-        <div
-          class="text-center mx-auto wow fadeInUp"
-          data-wow-delay="0.1s"
-          style="max-width: 500px"
-        >
-          <h1 class="display-6">Services</h1>
-          <p class="text-warning fs-5 mb-5">
-            Get fuel or your car fixed anytime
-          </p>
-        </div>
-        <div class="row g-4">
-          <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="service-item bg-white p-5">
-              <img
-                class="img-fluid mb-4"
-                src="{% static 'img/car-service.png'%}"
-                alt=""
-              />
-              <h5 class="mb-3">Currency Wallet</h5>
-              <p>
-                Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit,
-                sed stet lorem sit clita duo justo
-              </p>
-              <a href="{% url 'map' %}">Read More <i class="fa fa-arrow-right ms-2"></i></a>
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-            <div class="service-item bg-white p-5">
-              <img
-                class="img-fluid mb-4"
-                src="{% static 'img/gas-station.png'%}"
-                alt=""
-              />
-              <h5 class="mb-3">Currency Transaction</h5>
-              <p>
-                Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit,
-                sed stet lorem sit clita duo justo
-              </p>
-              <a href="{% url 'map' %}">Read More <i class="fa fa-arrow-right ms-2"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Service End -->
+    <!--map start-->
+    <!--map end-->
 
     <!-- Footer Start -->
     <div

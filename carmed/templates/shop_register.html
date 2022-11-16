@@ -158,7 +158,7 @@
             <input
               class="form-control"
               id="inputName"
-              placeholder="Enter Your Name"
+              placeholder="Your Name"
               type="text"
             />
           </div>
@@ -180,7 +180,7 @@
             <input class="form-control" id="inputNumber" type="tel" placeholder="0785675567" pattern="[0-9]{10}" />
           </div>
           <div class="col-md-12">
-            <label class="form-label" for="Businesstype">Type of Business</label>
+            <label class="form-label" for="Businesstype" placeholder="Business type">Type of Business</label>
             <select class="form-select" id="Businesstype">
                 <option selected>Choose...</option>
                 <option>Gas Station</option>
@@ -234,32 +234,30 @@
               />Car Medic
             </h1>
             <span
-              >Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita
-              erat ipsum et lorem et sit, sed stet lorem sit clita. Diam dolor
-              diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et
-              lorem et sit.</span
+              > We make it more convenient for individuals to travel by giving
+              them access to any repair shop or petrol station nearby, based on
+              where they've arrived while driving.</span
             >
           </div>
 
           <div class="col-lg-3 col-md-6">
             <h5 class="mb-4">Get In Touch</h5>
             <p>
-              <i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA
+              <i class="fa fa-map-marker-alt me-3"></i>KN 275 St, Kigali, RWANDA
             </p>
-            <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-            <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
+            <p><i class="fa fa-phone-alt me-3"></i>+250 790455433</p>
+            <p><i class="fa fa-envelope me-3"></i>carmedic@gmail.com</p>
           </div>
           <div class="col-lg-3 col-md-6">
             <h5 class="mb-4">Our Services</h5>
-            <a class="btn btn-link" href="">Request a mechanic</a>
-            <a class="btn btn-link" href="">Nearby gas station</a>
+            <a class="btn btn-link" href="{% url 'map' %}">Request a mechanic</a>
+            <a class="btn btn-link" href="{% url 'map' %}">Nearby gas station</a>
           </div>
           <div class="col-lg-3 col-md-6">
             <h5 class="mb-4">Quick Links</h5>
-            <a class="btn btn-link" href="">About Us</a>
-            <a class="btn btn-link" href="">Contact Us</a>
-            <a class="btn btn-link" href="">Our Services</a>
-            <a class="btn btn-link" href="">Terms & Condition</a>
+            <a class="btn btn-link" href="{% url 'home' %}">About Us</a>
+            <a class="btn btn-link" href="{% url 'contact' %}">Contact Us</a>
+            <a class="btn btn-link" href="{% url 'home' %}">Our Services</a>
           </div>
           <div class="col-lg-3 col-md-6">
             <h5 class="mb-4">Follow Us</h5>

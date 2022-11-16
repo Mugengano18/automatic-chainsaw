@@ -8,8 +8,8 @@
     <meta content="" name="keywords" />
     <meta content="" name="description" />
     <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700&display=swap"
       rel="stylesheet"
@@ -42,8 +42,8 @@
   <body>
     <!-- Spinner Start -->
     <div
-      id="spinner"
       class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+      id="spinner"
     >
       <div class="spinner-grow text-warning" role="status"></div>
     </div>
@@ -53,51 +53,50 @@
     <nav
       class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5"
     >
-      <a href="index.html" class="navbar-brand d-flex align-items-center">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
         <h2 class="m-0 text-warning">
           <img
+            alt="logo"
             class="img-fluid me-2"
             src="{% static 'img/logo-1.png' %}"
-            alt="logo"
             style="width: 45px"
           />CARMEDIC
         </h2>
       </a>
       <button
-        type="button"
         class="navbar-toggler"
-        data-bs-toggle="collapse"
         data-bs-target="#navbarCollapse"
+        data-bs-toggle="collapse"
+        type="button"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto py-4 py-lg-0">
-          <a href="{% url 'home' %}" class="nav-item nav-link active">Home</a>
-          <a href="#about" class="nav-item nav-link">About</a>
-          <a href="#service" class="nav-item nav-link">Service</a>
+          <a class="nav-item nav-link active" href="{% url 'home' %}">Home</a>
+          <a class="nav-item nav-link" href="#about">About</a>
+          <a class="nav-item nav-link" href="#service">Service</a>
           {% if user.is_authenticated %}
-          <a href="{% url 'logout' %}" class="nav-item nav-link">Logout</a>
+          <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
           {% else %}
           <div class="nav-item dropdown">
             <a
-              href="#"
               class="nav-link dropdown-toggle"
               data-bs-toggle="dropdown"
+              href="#"
               >Register</a
             >
             <div class="dropdown-menu shadow-sm m-0">
-              <a href="{% url 'signup' %}" class="dropdown-item"
+              <a class="dropdown-item" href="{% url 'signup' %}"
                 >You need help?</a
               >
-              <a href="{% url 'shop_register' %}" class="dropdown-item"
+              <a class="dropdown-item" href="{% url 'shop_register' %}"
                 >Register your shop or station</a
               >
             </div>
           </div>
           {% endif %}
-          <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
-          
+          <a class="nav-item nav-link" href="{% url 'contact' %}">Contact</a>
         </div>
         <div class="h-100 d-lg-inline-flex align-items-center d-none">
           <a
@@ -129,22 +128,22 @@
               Travel Better With Car Medic
             </h1>
             <p class="animated slideInDown">
-              Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu
-              diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet
-              lorem sit clita duo justo magna dolore erat amet
+              We make it more convenient for individuals to travel by giving
+              them access to any repair shop or petrol station nearby, based on
+              where they've arrived while driving.
             </p>
             <a
-              href="#about"
               class="btn btn-warning py-3 px-4 animated slideInDown"
+              href="#about"
               >Explore More</a
             >
           </div>
           <div class="col-lg-6 animated fadeIn">
             <img
-              class="img-fluid animated pulse infinite"
-              style="animation-duration: 3s"
-              src="{% static 'img/mechano-1.png'%}"
               alt=""
+              class="img-fluid animated pulse infinite"
+              src="{% static 'img/mechano-1.png'%}"
+              style="animation-duration: 3s"
             />
           </div>
         </div>
@@ -159,43 +158,42 @@
         <div class="row g-5 align-items-center">
           <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
             <img
+              alt=""
               class="img-fluid"
               src="{% static 'img/mechano-2.png'%}"
-              alt=""
             />
           </div>
           <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
             <div class="h-100">
               <h1 class="display-6">About Us</h1>
               <p class="text-warning fs-5 mb-4">
-                The Most Trusted Car Repair Platform
+                The Most Trusted Car Service Platform
               </p>
               <p>
-                Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit.
-                Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit,
-                sed stet lorem sit clita duo justo magna dolore erat amet
+                Keeping the automobile in good shape while traveling will
+                prevent you from unexpected vehicle issues and allow you to
+                arrive on schedule.
               </p>
               <p class="mb-4">
-                Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit.
-                Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit.
+                We offer a variety of services to our clients, including the following:
               </p>
               <div class="d-flex align-items-center mb-2">
                 <i
                   class="fa fa-check bg-light text-warning btn-sm-square rounded-circle me-3 fw-bold"
                 ></i>
-                <span>Tempor erat elitr rebum at clita</span>
+                <span>Finding the nearest gas station when on the road.</span>
               </div>
               <div class="d-flex align-items-center mb-2">
                 <i
-                  class="fa fa-check bg-light text-warning btn-sm-square rounded-circle me-3 fw-bold"
+                  class="fa fa-check bg-light text-warning btn-sm-square rounded-circle me-1 fw-bold"
                 ></i>
-                <span>Tempor erat elitr rebum at clita</span>
+                <span>We assist our clients in locating the nearest car repair facility.</span>
               </div>
               <div class="d-flex align-items-center mb-4">
                 <i
-                  class="fa fa-check bg-light text-warning btn-sm-square rounded-circle me-3 fw-bold"
+                  class="fa fa-check bg-light text-warning btn-sm-square rounded-circle me-1 fw-bold"
                 ></i>
-                <span>Tempor erat elitr rebum at clita</span>
+                <span>We assist Business owners to register their Business to our site</span>
               </div>
             </div>
           </div>
@@ -214,38 +212,40 @@
         >
           <h1 class="display-6">Services</h1>
           <p class="text-warning fs-5 mb-5">
-            Get fuel or your car fixed anytime
+            GET GAS AND FIX YOUR CAR ANYTIME, ANYWHERE.
           </p>
         </div>
         <div class="row g-4">
           <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
             <div class="service-item bg-white p-5">
               <img
+                alt=""
                 class="img-fluid mb-4"
                 src="{% static 'img/car-service.png'%}"
-                alt=""
               />
-              <h5 class="mb-3">Currency Wallet</h5>
+              <h5 class="mb-3">REPAIR SHOP</h5>
               <p>
-                Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit,
-                sed stet lorem sit clita duo justo
+                In case of an emergency, get help fast.
               </p>
-              <a href="{% url 'map' %}">Read More <i class="fa fa-arrow-right ms-2"></i></a>
+              <a href="{% url 'map' %}"
+                >Find More <i class="fa fa-arrow-right ms-2"></i
+              ></a>
             </div>
           </div>
           <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
             <div class="service-item bg-white p-5">
               <img
+                alt=""
                 class="img-fluid mb-4"
                 src="{% static 'img/gas-station.png'%}"
-                alt=""
               />
-              <h5 class="mb-3">Currency Transaction</h5>
+              <h5 class="mb-3">Gas Station</h5>
               <p>
-                Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit,
-                sed stet lorem sit clita duo justo
+                In case of an emergency, stop at the nearest petrol station on your way.
               </p>
-              <a href="{% url 'map' %}">Read More <i class="fa fa-arrow-right ms-2"></i></a>
+              <a href="{% url 'map' %}"
+                >Find More <i class="fa fa-arrow-right ms-2"></i
+              ></a>
             </div>
           </div>
         </div>
@@ -263,39 +263,37 @@
           <div class="col-md-6">
             <h1 class="text-warning mb-4">
               <img
+                alt=""
                 class="img-fluid me-2"
                 src="img/logo-1.png"
-                alt=""
                 style="width: 45px"
               />Car Medic
             </h1>
             <span
-              >Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita
-              erat ipsum et lorem et sit, sed stet lorem sit clita. Diam dolor
-              diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et
-              lorem et sit.</span
+              > We make it more convenient for individuals to travel by giving
+              them access to any repair shop or petrol station nearby, based on
+              where they've arrived while driving.</span
             >
           </div>
 
           <div class="col-lg-3 col-md-6">
             <h5 class="mb-4">Get In Touch</h5>
             <p>
-              <i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA
+              <i class="fa fa-map-marker-alt me-3"></i>KN 275 St, Kigali, RWANDA
             </p>
-            <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-            <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
+            <p><i class="fa fa-phone-alt me-3"></i>+250 790455433</p>
+            <p><i class="fa fa-envelope me-3"></i>carmedic@gmail.com</p>
           </div>
           <div class="col-lg-3 col-md-6">
             <h5 class="mb-4">Our Services</h5>
-            <a class="btn btn-link" href="">Request a mechanic</a>
-            <a class="btn btn-link" href="">Nearby gas station</a>
+            <a class="btn btn-link" href="{% url 'map' %}">Request a mechanic</a>
+            <a class="btn btn-link" href="{% url 'map' %}">Nearby gas station</a>
           </div>
           <div class="col-lg-3 col-md-6">
             <h5 class="mb-4">Quick Links</h5>
-            <a class="btn btn-link" href="">About Us</a>
-            <a class="btn btn-link" href="">Contact Us</a>
-            <a class="btn btn-link" href="">Our Services</a>
-            <a class="btn btn-link" href="">Terms & Condition</a>
+            <a class="btn btn-link" href="#About">About Us</a>
+            <a class="btn btn-link" href="{% url 'contact' %}">Contact Us</a>
+            <a class="btn btn-link" href="#Service">Our Services</a>
           </div>
           <div class="col-lg-3 col-md-6">
             <h5 class="mb-4">Follow Us</h5>
@@ -330,8 +328,8 @@
 
     <!-- Back to Top -->
     <a
-      href="#"
       class="btn btn-lg btn-warning btn-lg-square rounded-circle back-to-top"
+      href="#"
       ><i class="bi bi-arrow-up"></i
     ></a>
 

@@ -76,8 +76,8 @@
    <div class="collapse navbar-collapse" id="navbarCollapse">
      <div class="navbar-nav ms-auto py-4 py-lg-0">
        <a href="{% url 'home' %}" class="nav-item nav-link active">Home</a>
-       <a href="#about" class="nav-item nav-link">About</a>
-       <a href="#service" class="nav-item nav-link">Service</a>
+       <a href="{% url 'home' %}" class="nav-item nav-link">About</a>
+       <a href="{% url 'home' %}" class="nav-item nav-link">Service</a>
        <div class="nav-item dropdown">
          <a
            href="#"
@@ -163,7 +163,7 @@
                   <label for="">password</label>
                   <input
                     name="pswd1"
-                    placeholder="Enter Password"
+                    placeholder="Password"
                     type="password"
                     required
                   />
@@ -189,7 +189,7 @@
                   <label for="">First name</label>
                   <input
                     name="fname"
-                    placeholder="Enter your Firstname"
+                    placeholder="Your Firstname"
                     type="text"
                     required
                   />
@@ -197,7 +197,7 @@
                   <label for="">last name</label>
                   <input
                     name="lname"
-                    placeholder="Enter your Lastname"
+                    placeholder="Your Lastname"
                     type="text"
                     required
                   />
@@ -212,12 +212,12 @@
                   />
   
                   <label for="">password</label>
-                  <input name="pswd1" placeholder="password" type="password" required />
+                  <input name="pswd1" placeholder="Password" type="password" required />
   
                   <label for="">confirm Password </label>
                   <input
                     name="pswd2"
-                    placeholder="confirm password"
+                    placeholder="Confirm Password"
                     type="password"
                     required
                   />
@@ -234,6 +234,8 @@
         </div>
       </div>
        <!--End of user_register-->
+
+
     <!-- Footer Start -->
     <div
       class="container-fluid bg-light footer mt-5 pt-5 wow fadeIn"
@@ -251,32 +253,30 @@
               />Car Medic
             </h1>
             <span
-              >Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita
-              erat ipsum et lorem et sit, sed stet lorem sit clita. Diam dolor
-              diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et
-              lorem et sit.</span
+              > We make it more convenient for individuals to travel by giving
+              them access to any repair shop or petrol station nearby, based on
+              where they've arrived while driving.</span
             >
           </div>
 
           <div class="col-lg-3 col-md-6">
             <h5 class="mb-4">Get In Touch</h5>
             <p>
-              <i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA
+              <i class="fa fa-map-marker-alt me-3"></i>KN 275 St, Kigali, RWANDA
             </p>
-            <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-            <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
+            <p><i class="fa fa-phone-alt me-3"></i>+250 790455433</p>
+            <p><i class="fa fa-envelope me-3"></i>carmedic@gmail.com</p>
           </div>
           <div class="col-lg-3 col-md-6">
             <h5 class="mb-4">Our Services</h5>
-            <a class="btn btn-link" href="">Request a mechanic</a>
-            <a class="btn btn-link" href="">Nearby gas station</a>
+            <a class="btn btn-link" href="{% url 'map' %}">Request a mechanic</a>
+            <a class="btn btn-link" href="{% url 'map' %}">Nearby gas station</a>
           </div>
           <div class="col-lg-3 col-md-6">
             <h5 class="mb-4">Quick Links</h5>
-            <a class="btn btn-link" href="">About Us</a>
-            <a class="btn btn-link" href="">Contact Us</a>
-            <a class="btn btn-link" href="">Our Services</a>
-            <a class="btn btn-link" href="">Terms & Condition</a>
+            <a class="btn btn-link" href="{% url 'home' %}">About Us</a>
+            <a class="btn btn-link" href="{% url 'contact' %}">Contact Us</a>
+            <a class="btn btn-link" href="{% url 'home' %}">Our Services</a>
           </div>
           <div class="col-lg-3 col-md-6">
             <h5 class="mb-4">Follow Us</h5>

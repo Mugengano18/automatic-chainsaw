@@ -167,13 +167,13 @@
         <div class="row g-5">
           <div class="col-lg-5 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
             <p class="mb-2">Our office:</p>
-            <h4>123 Street, New York, USA</h4>
+            <h4>KN 275 St, Kigali, RWANDA</h4>
             <hr class="w-100" />
             <p class="mb-2">Call us:</p>
-            <h4>+012 345 6789</h4>
+            <h4>+250 790455433 </h4>
             <hr class="w-100" />
             <p class="mb-2">Mail us:</p>
-            <h4>info@example.com</h4>
+            <h4>carmeddic@gmail.com</h4>
             <hr class="w-100" />
             <p class="mb-2">Follow us:</p>
             <div class="d-flex pt-2">
@@ -251,80 +251,78 @@
     </div>
     <!-- Contact End -->
 
-    <!-- Footer Start -->
-    <div
-      class="container-fluid bg-light footer mt-5 pt-5 wow fadeIn"
-      data-wow-delay="0.1s"
-    >
-      <div class="container py-5">
-        <div class="row g-5">
-          <div class="col-md-6">
-            <h1 class="text-warning mb-4">
-              <img
-                class="img-fluid me-2"
-                src="img/logo-1.png"
-                alt=""
-                style="width: 45px"
-              />Car Medic
-            </h1>
-            <span
-              >Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita
-              erat ipsum et lorem et sit, sed stet lorem sit clita. Diam dolor
-              diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et
-              lorem et sit.</span
-            >
-          </div>
+     <!-- Footer Start -->
+     <div
+     class="container-fluid bg-light footer mt-5 pt-5 wow fadeIn"
+     data-wow-delay="0.1s"
+   >
+     <div class="container py-5">
+       <div class="row g-5">
+         <div class="col-md-6">
+           <h1 class="text-warning mb-4">
+             <img
+               alt=""
+               class="img-fluid me-2"
+               src="img/logo-1.png"
+               style="width: 45px"
+             />Car Medic
+           </h1>
+           <span
+             > We make it more convenient for individuals to travel by giving
+             them access to any repair shop or petrol station nearby, based on
+             where they've arrived while driving.</span
+           >
+         </div>
 
-          <div class="col-lg-3 col-md-6">
-            <h5 class="mb-4">Get In Touch</h5>
-            <p>
-              <i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA
-            </p>
-            <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-            <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <h5 class="mb-4">Our Services</h5>
-            <a class="btn btn-link" href="">Request a mechanic</a>
-            <a class="btn btn-link" href="">Nearby gas station</a>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <h5 class="mb-4">Quick Links</h5>
-            <a class="btn btn-link" href="">About Us</a>
-            <a class="btn btn-link" href="">Contact Us</a>
-            <a class="btn btn-link" href="">Our Services</a>
-            <a class="btn btn-link" href="">Terms & Condition</a>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <h5 class="mb-4">Follow Us</h5>
-            <div class="d-flex">
-              <a class="btn btn-square rounded-circle me-1" href=""
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a class="btn btn-square rounded-circle me-1" href=""
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a class="btn btn-square rounded-circle me-1" href=""
-                ><i class="fab fa-youtube"></i
-              ></a>
-              <a class="btn btn-square rounded-circle me-1" href=""
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container-fluid copyright">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-              &copy; <a href="#">Car Medic</a>, All Right Reserved.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Footer End -->
+         <div class="col-lg-3 col-md-6">
+           <h5 class="mb-4">Get In Touch</h5>
+           <p>
+             <i class="fa fa-map-marker-alt me-3"></i>KN 275 St, Kigali, RWANDA
+           </p>
+           <p><i class="fa fa-phone-alt me-3"></i>+250 790455433</p>
+           <p><i class="fa fa-envelope me-3"></i>carmedic@gmail.com</p>
+         </div>
+         <div class="col-lg-3 col-md-6">
+           <h5 class="mb-4">Our Services</h5>
+           <a class="btn btn-link" href="{% url 'map' %}">Request a mechanic</a>
+           <a class="btn btn-link" href="{% url 'map' %}">Nearby gas station</a>
+         </div>
+         <div class="col-lg-3 col-md-6">
+           <h5 class="mb-4">Quick Links</h5>
+           <a class="btn btn-link" href="{% url 'home' %}">About Us</a>
+           <a class="btn btn-link" href="{% url 'contact' %}">Contact Us</a>
+           <a class="btn btn-link" href="{% url 'home' %}">Our Services</a>
+         </div>
+         <div class="col-lg-3 col-md-6">
+           <h5 class="mb-4">Follow Us</h5>
+           <div class="d-flex">
+             <a class="btn btn-square rounded-circle me-1" href=""
+               ><i class="fab fa-twitter"></i
+             ></a>
+             <a class="btn btn-square rounded-circle me-1" href=""
+               ><i class="fab fa-facebook-f"></i
+             ></a>
+             <a class="btn btn-square rounded-circle me-1" href=""
+               ><i class="fab fa-youtube"></i
+             ></a>
+             <a class="btn btn-square rounded-circle me-1" href=""
+               ><i class="fab fa-linkedin-in"></i
+             ></a>
+           </div>
+         </div>
+       </div>
+     </div>
+     <div class="container-fluid copyright">
+       <div class="container">
+         <div class="row">
+           <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+             &copy; <a href="#">Car Medic</a>, All Right Reserved.
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+   <!-- Footer End -->
 
     <!-- Back to Top -->
     <a

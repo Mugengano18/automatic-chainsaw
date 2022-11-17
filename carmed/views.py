@@ -1,10 +1,16 @@
+import json
+
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+import requests
+from django.http import HttpResponse
 from django.shortcuts import render, redirect, reverse
 
 # Create your views here.
+from carmed.forms import Retail_info
+from carmed.models import Business
 
 
 def home(request):
@@ -13,10 +19,6 @@ def home(request):
 
 def contact(request):
     return render(request, "contact.html")
-
-
-def shop_register(request):
-    return render(request, "shop_register.html")
 
 
 def signUser(request):
@@ -61,6 +63,26 @@ def logoutUser(request):
     logout(request)
     messages.success(request, 'Logged out successfully!')
     return redirect('login')
+
+
+def shop_register(request):
+    if request.method == 'POST':
+        # make requests from api.ipify.org
+        ip = requests.get('https://api.ipify.org?format=json')
+        ip_data = json.loads(ip.text)
+        # make requests from ip-api.com
+        res = requests.get('http://ip-api.com/json/' + ip_data["ip"])
+        data_one = json.loads(res.text)
+
+        ret = Business(name=request.POST["fullname"], business_name=request.POST["businessname"], email=request.POST["email"], phone_number=request.POST["phone"],
+                       business_type=request.POST["businesstype"], latitude=data_one['lat'], longitude=data_one['lon'], city=request.POST['inputCity'], district=request.POST["inputDistrict"], sector=request.POST["inputSector"])
+        ret.save()
+        return HttpResponse('Successfully registered your business')
+
+    else:
+        form = Retail_info()
+
+    return render(request, 'shop_register.html', context={'form': form})
 
 
 @login_required(login_url='login')

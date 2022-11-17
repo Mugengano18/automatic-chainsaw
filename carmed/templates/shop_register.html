@@ -38,6 +38,7 @@
 
     <!-- Template Stylesheet -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+    
   </head>
 
   <body>
@@ -152,7 +153,8 @@
     <div class="row m-5">
       <div class="col-md-3"></div>
       <div class="col-md-6 wow fadeInUp" data-wow-delay="0.5s"">
-        <form class="row g-3">
+        <form class="row g-3" action="", method="POST", id="my_form">
+          {% csrf_token %}
           <div class="col-12">
             <label class="form-label" for="name">Full Name</label>
             <input
@@ -160,6 +162,7 @@
               id="inputName"
               placeholder="Your Name"
               type="text"
+              name="fullname"
             />
           </div>
           <div class="col-12">
@@ -169,51 +172,51 @@
               id="inputname2"
               placeholder="Business name"
               type="text"
+              name="businessname"
             />
           </div>
           <div class="col-md-6">
             <label class="form-label" for="inputEmail4">Email</label>
-            <input class="form-control" id="inputEmail4" type="email" />
+            <input class="form-control" id="inputEmail4" type="email" name="email" />
           </div>
           <div class="col-md-6">
             <label class="form-label" for="inputNumber">Phone Number</label>
-            <input class="form-control" id="inputNumber" type="tel" placeholder="0785675567" pattern="[0-9]{10}" />
+            <input class="form-control" id="inputNumber" type="tel" placeholder="0785675567" pattern="[0-9]{10}" name="phone" />
           </div>
           <div class="col-md-12">
             <label class="form-label" for="Businesstype" placeholder="Business type">Type of Business</label>
-            <select class="form-select" id="Businesstype">
+            <select class="form-select" id="Businesstype" name="businesstype">
                 <option selected>Choose...</option>
-                <option>Gas Station</option>
-                <option>Repair Shop</option>
+                <option value="Gas station">Gas Station</option>
+                <option value="Repair Shop">Repair Shop</option>
               </select>
           </div>
           <div class="col-md-4">
             <label class="form-label" for="inputCity">City</label>
-            <select class="form-select" id="inputCity">
-                <option selected>Choose...</option>
-                <option>...</option>
+            <select class="form-select" id="inputCity" name="inputCity" onchange="populate(this.id,'inputDistrict')">
+              <option value=""selected>Choose...</option>
               </select>
           </div>
           <div class="col-md-4">
-            <label class="form-label" for="inputSector">Sector</label>
-            <select class="form-select" id="inputSector">
+            <label class="form-label" for="inputDistrict">District</label>
+            <select class="form-select" id="inputDistrict" name="inputDistrict" onchange="populateSector('inputCity',this.id)">
               <option selected>Choose...</option>
-              <option>...</option>
             </select>
           </div>
           <div class="col-md-4">
-            <label class="form-label" for="inputCell">Cell</label>
-            <select class="form-select" id="inputCell">
-                <option selected>Choose...</option>
-                <option>...</option>
-              </select>
+            <label class="form-label" for="inputSector">Sector</label>
+            <select class="form-select" id="inputSector" name="inputSector">
+              <option selected>Choose...</option>
+            </select>
           </div>
           <div class="col-12">
             <button class="btn btn-warning py-3 px-4" type="submit">Register</button>
           </div>
         </form>
       </div>
-      <div class="col-md-3"></div>
+      <div class="col-md-3">
+
+      </div>
     </div>
     <!--End of Register-->
 
@@ -308,5 +311,7 @@
 
     <!-- Template Javascript -->
     <script src="{% static 'js/main.js'%}"></script>
+    <script src="{% static 'js/httprequest.js'%}"></script>
+    
   </body>
 </html>

@@ -91,6 +91,56 @@ def shop_register(request):
     return render(request, 'shop_register.html', context={'form': form})
 
 
+def popup_html(row):
+    i = row
+    name = i["name"]
+    business_name = i["business_name"]
+    email = i["email"]
+    phone_number = i["phone_number"]
+    business_type = i["business_type"]
+    city = i["city"]
+    district =i["district"]
+    sector = i["sector"]
+    print(name)
+    left_col_color = "#3e95b5"
+    right_col_color = "#f2f9ff"
+
+    html = """
+    <!DOCTYPE html>
+    <html>
+    <center> <table style="height: 126px; width: 305px;">
+    <tbody>
+    <tr>
+    <td style="background-color: """ + left_col_color + """;"><span style="color: #ffffff;">Business Name: </span></td>
+    <td style="width: 150px;background-color: """ + right_col_color + """;">""" + business_name + """</td>
+    </tr>
+    <tr>
+    <td style="background-color: """ + left_col_color + """;"><span style="color: #ffffff;">Business Type: </span></td>
+    <td style="width: 150px;background-color: """ + right_col_color + """;">{}</td>"""+ business_type + """
+    </tr>
+    <tr>
+    <td style="background-color: """ + left_col_color + """;"><span style="color: #ffffff;">Phone Number: </span></td>
+    <td style="width: 150px;background-color: """ + right_col_color + """;">{}</td>"""+ phone_number + """
+    </tr>
+    <tr>
+    <td style="background-color: """ + left_col_color + """;"><span style="color: #ffffff;">City: </span></td>
+    <td style="width: 150px;background-color: """ + right_col_color + """;">{}</td>""" + city + """
+    </tr>
+    <tr>
+    <td style="background-color: """ + left_col_color + """;"><span style="color: #ffffff;">District: </span></td>
+    <td style="width: 150px;background-color: """ + right_col_color + """;">{}</td>"""+ district + """
+    </tr>
+    <tr>
+    <td style="background-color: """ + left_col_color + """;"><span style="color: #ffffff;">Sector: </span></td>
+    <td style="width: 150px;background-color: """ + right_col_color + """;">{}</td>"""+sector + """
+    </tr>
+    </tbody>
+    </table></center>
+    </html>
+    """
+    return html
+
+
 @login_required(login_url='login')
 def map_location(request):
     if request.method == 'POST':
@@ -101,21 +151,30 @@ def map_location(request):
     else:
         form = SearchForm()
     address = Search.objects.all().last()
-    data_list = Business.objects.values_list('latitude', 'longitude')
     location = geocoder.osm(address)
-    lat = Business.objects.values_list('latitude')[0][0]
-    long = Business.objects.values_list('longitude')[0][0]
-    sector = Business.objects.values_list('sector')[0][0]
     country = location.country
+    map1 = folium.Map(location=[-1.952183, 30.054957], zoom_start=10, tiles='OpenStreetMap')
+    data_list = Business.objects.all().values()
+    for i in data_list:
+        bus_type = i["business_type"]
+        if bus_type == 'Gas station':
+            color = 'orange'
+        elif bus_type == 'repair shop':
+            color = 'gray'
+        else:
+            color = 'black'
+        html = popup_html(i)
+        print(html)
+        popup = folium.Popup(folium.Html(html, script=True), max_width=500)
+        labels = i["business_name"]
+        lat = i["latitude"]
+        long = i["longitude"]
+        sector = i["sector"]
+        folium.Marker([lat, long], tooltip='Click for more', popup=popup, icon=folium.Icon(color=color, icon='car', prefix='fa')).add_to(map1)
+
     if lat is None or long is None:
         address.delete()
         return HttpResponse('Your address input is incorrect')
-    map1 = folium.Map(location=[-1.952183, 30.054957], zoom_start=10, tiles='OpenStreetMap')
-
-    pp = folium.Html('<a href="' + "{% url 'details' %}" + '">' + 'View Details' + '</a>', script=True)
-    popup = folium.Popup(pp, max_width=2650)
-    folium.Marker([lat, long], tooltip='Click for more', popup=popup).add_to(map1)
-    # plugins.FastMarkerCluster(data_list, icon='Rwanda',popup=country, tooltip="Click for more",).add_to(map1)
 
     map1 = map1._repr_html_()
 

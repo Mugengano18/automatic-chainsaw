@@ -19,8 +19,8 @@ fetch("https://rwanda.p.rapidapi.com/provinces", options)
     let data_all = response.data;
     for (var province in data_all) {
       pair = data_all[province];
+      console.log(pair)
       city_field.innerHTML += `<option value = "${pair}">${pair}</option>`
-     document.getElementById("province").innerHTML += pair
     }
   })
   .catch((err) => console.error(err));

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_39a7d70b08da174280e262c05b8ad86b {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_39a7d70b08da174280e262c05b8ad86b" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_39a7d70b08da174280e262c05b8ad86b = L.map(
+                "map_39a7d70b08da174280e262c05b8ad86b",
+                {
+                    center: [-1.952183, 30.054957],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 10,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_42a8ea5723cf0b6f2ae9b6670c8a3fd7 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_39a7d70b08da174280e262c05b8ad86b);
+        
+    
+            var marker_b2bf80c1070223a119c8df296553fd49 = L.marker(
+                [-1.9507, 30.0663],
+                {}
+            ).addTo(map_39a7d70b08da174280e262c05b8ad86b);
+        
+    
+            var icon_a91712ed079ee2e69e457c829704e4e3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "car", "iconColor": "white", "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_b2bf80c1070223a119c8df296553fd49.setIcon(icon_a91712ed079ee2e69e457c829704e4e3);
+        
+    
+        var popup_3a7a02c7218a741f2c9284e281a8ce76 = L.popup({"maxWidth": 500});
+
+        
+            
+                var html_27ec222bfcece8c476192097be07284d = $(`<div id="html_27ec222bfcece8c476192097be07284d" style="width: 100.0%; height: 100.0%;">     <!DOCTYPE html>     <html>     <center> <table style="height: 126px; width: 305px;">     <tbody>     <tr>     <td style="background-color: #3e95b5;"><span style="color: #ffffff;">Business Name: </span></td>     <td style="width: 150px;background-color: #f2f9ff;">Petroleum</td>     </tr>     <tr>     <td style="background-color: #3e95b5;"><span style="color: #ffffff;">Business Type: </span></td>     <td style="width: 150px;background-color: #f2f9ff;">{}</td>Gas station     </tr>     <tr>     <td style="background-color: #3e95b5;"><span style="color: #ffffff;">Phone Number: </span></td>     <td style="width: 150px;background-color: #f2f9ff;">{}</td>0788455344     </tr>     <tr>     <td style="background-color: #3e95b5;"><span style="color: #ffffff;">City: </span></td>     <td style="width: 150px;background-color: #f2f9ff;">{}</td>East     </tr>     <tr>     <td style="background-color: #3e95b5;"><span style="color: #ffffff;">District: </span></td>     <td style="width: 150px;background-color: #f2f9ff;">{}</td>Ngoma     </tr>     <tr>     <td style="background-color: #3e95b5;"><span style="color: #ffffff;">Sector: </span></td>     <td style="width: 150px;background-color: #f2f9ff;">{}</td>Kazo     </tr>     </tbody>     </table></center>     </html>     </div>`)[0];
+                popup_3a7a02c7218a741f2c9284e281a8ce76.setContent(html_27ec222bfcece8c476192097be07284d);
+            
+        
+
+        marker_b2bf80c1070223a119c8df296553fd49.bindPopup(popup_3a7a02c7218a741f2c9284e281a8ce76)
+        ;
+
+        
+    
+    
+            marker_b2bf80c1070223a119c8df296553fd49.bindTooltip(
+                `<div>
+                     Click for more
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a689aa226e908f6f2318bdfcba91e262 = L.marker(
+                [-1.9507, 30.0663],
+                {}
+            ).addTo(map_39a7d70b08da174280e262c05b8ad86b);
+        
+    
+            var icon_6690331179804b6c5b840546e0fd1908 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "car", "iconColor": "white", "markerColor": "black", "prefix": "fa"}
+            );
+            marker_a689aa226e908f6f2318bdfcba91e262.setIcon(icon_6690331179804b6c5b840546e0fd1908);
+        
+    
+        var popup_009ff8c8b2ea1a9818624e6d92d9f19a = L.popup({"maxWidth": 500});
+
+        
+            
+                var html_4eed11393e1673e258ed777707c0589b = $(`<div id="html_4eed11393e1673e258ed777707c0589b" style="width: 100.0%; height: 100.0%;">     <!DOCTYPE html>     <html>     <center> <table style="height: 126px; width: 305px;">     <tbody>     <tr>     <td style="background-color: #3e95b5;"><span style="color: #ffffff;">Business Name: </span></td>     <td style="width: 150px;background-color: #f2f9ff;">Car help</td>     </tr>     <tr>     <td style="background-color: #3e95b5;"><span style="color: #ffffff;">Business Type: </span></td>     <td style="width: 150px;background-color: #f2f9ff;">{}</td>Repair Shop     </tr>     <tr>     <td style="background-color: #3e95b5;"><span style="color: #ffffff;">Phone Number: </span></td>     <td style="width: 150px;background-color: #f2f9ff;">{}</td>0786621999     </tr>     <tr>     <td style="background-color: #3e95b5;"><span style="color: #ffffff;">City: </span></td>     <td style="width: 150px;background-color: #f2f9ff;">{}</td>Kigali     </tr>     <tr>     <td style="background-color: #3e95b5;"><span style="color: #ffffff;">District: </span></td>     <td style="width: 150px;background-color: #f2f9ff;">{}</td>Kicukiro     </tr>     <tr>     <td style="background-color: #3e95b5;"><span style="color: #ffffff;">Sector: </span></td>     <td style="width: 150px;background-color: #f2f9ff;">{}</td>Gikondo     </tr>     </tbody>     </table></center>     </html>     </div>`)[0];
+                popup_009ff8c8b2ea1a9818624e6d92d9f19a.setContent(html_4eed11393e1673e258ed777707c0589b);
+            
+        
+
+        marker_a689aa226e908f6f2318bdfcba91e262.bindPopup(popup_009ff8c8b2ea1a9818624e6d92d9f19a)
+        ;
+
+        
+    
+    
+            marker_a689aa226e908f6f2318bdfcba91e262.bindTooltip(
+                `<div>
+                     Click for more
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>

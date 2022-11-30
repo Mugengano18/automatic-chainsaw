@@ -38,11 +38,15 @@ def signUser(request):
 
         messages.success(request, "Successfully created account.")
 
-        return redirect('login')
+        return redirect('home')
     return render(request, 'user_register.html')
 
 
 def loginUser(request):
+
+
+    if request.user.is_authenticated:
+        return redirect(reverse("home"))
     if request.method == 'POST':
         phone = request.POST['phone']
         pswd1 = request.POST['pswd1']
@@ -52,6 +56,7 @@ def loginUser(request):
 
         if user_login:
             login(request, user_login)
+            return redirect('home')
             next = request.POST.get('next', '/')
             return HttpResponseRedirect(next)
         else:
@@ -64,27 +69,6 @@ def logoutUser(request):
     logout(request)
     messages.success(request, 'Logged out successfully!')
     return redirect('login')
-
-
-def get_ip():
-    response = requests.get('https://api64.ipify.org?format=json').json()
-    return response["ip"]
-
-
-def get_location():
-    ip_address = get_ip()
-    response = requests.get(f'https://ipapi.co/{ip_address}/json/').json()
-    location_data = {
-        "ip": ip_address,
-        "city": response.get("city"),
-        "region": response.get("region"),
-        "country": response.get("country_name"),
-        "latitude": response.get("lat")
-    }
-    return location_data
-
-
-print(get_location())
 
 
 def shop_register(request):

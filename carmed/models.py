@@ -5,6 +5,7 @@ from django.db import models
 
 
 class Business(models.Model):
+    business_id = models.IntegerField(primary_key=True,auto_created=True)
     name = models.CharField(max_length=50, null=True)
     business_name = models.CharField(max_length=50, null=True)
     email = models.CharField(max_length=100, null=True)
@@ -17,8 +18,8 @@ class Business(models.Model):
     longitude = models.FloatField(default=0, null=True)
 
 
-def __str__(self):
-    return self.name
+    def __str__(self):
+        return self.business_name
 
 
 class Search(models.Model):
@@ -27,3 +28,14 @@ class Search(models.Model):
 
     def __str__(self):
         return self.address
+
+
+class service_detail(models.Model):
+
+    services_id = models.IntegerField(primary_key=True,auto_created=True)
+    name = models.CharField(max_length=30, default='0', null=False)
+    type = models.CharField(max_length=20,default='0',null=False)
+    description = models.CharField(max_length=30, default='0', null=False)
+
+    def __str__(self):
+        return self.name

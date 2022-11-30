@@ -86,7 +86,7 @@
               >Register</a
             >
             <div class="dropdown-menu shadow-sm m-0">
-              <a href="{% url 'signup' %}" class="dropdown-item">You need help?</a>
+              <a href="{% url 'login' %}" class="dropdown-item">You need help?</a>
               <a href="{% url 'shop_register' %}" class="dropdown-item"
                 >Register your shop or station</a
               >
@@ -163,6 +163,7 @@
               placeholder="Your Name"
               type="text"
               name="fullname"
+              required
             />
           </div>
           <div class="col-12">
@@ -173,39 +174,41 @@
               placeholder="Business name"
               type="text"
               name="businessname"
+              required
             />
           </div>
           <div class="col-md-6">
             <label class="form-label" for="inputEmail4">Email</label>
-            <input class="form-control" id="inputEmail4" type="email" name="email" />
+            <input class="form-control" id="inputEmail4" type="email" name="email" required/>
           </div>
           <div class="col-md-6">
             <label class="form-label" for="inputNumber">Phone Number</label>
-            <input class="form-control" id="inputNumber" type="tel" placeholder="0785675567" pattern="[0-9]{10}" name="phone" />
+            <input class="form-control" id="inputNumber" type="tel" placeholder="0785675567" pattern="[0-9]{10}" name="phone" required />
           </div>
           <div class="col-md-12">
             <label class="form-label" for="Businesstype" placeholder="Business type">Type of Business</label>
-            <select class="form-select" id="Businesstype" name="businesstype">
-                <option selected>Choose...</option>
-                <option value="Gas station">Gas Station</option>
+            <select class="form-select" id="Businesstype" name="businesstype" required>
+                <option value="All">All</option>
+                <option value="Station">Gas Station</option>
                 <option value="Repair Shop">Repair Shop</option>
+
               </select>
           </div>
           <div class="col-md-4">
             <label class="form-label" for="inputCity">City</label>
-            <select class="form-select" id="inputCity" name="inputCity" onchange="populate(this.id,'inputDistrict')">
+            <select class="form-select" id="inputCity" name="inputCity" onchange="populate(this.id,'inputDistrict')" required>
               <option value=""selected>Choose...</option>
               </select>
           </div>
           <div class="col-md-4">
             <label class="form-label" for="inputDistrict">District</label>
-            <select class="form-select" id="inputDistrict" name="inputDistrict" onchange="populateSector('inputCity',this.id)">
+            <select class="form-select" id="inputDistrict" name="inputDistrict" onchange="populateSector('inputCity',this.id)" required>
               <option selected>Choose...</option>
             </select>
           </div>
           <div class="col-md-4">
             <label class="form-label" for="inputSector">Sector</label>
-            <select class="form-select" id="inputSector" name="inputSector">
+            <select class="form-select" id="inputSector" name="inputSector" required>
               <option selected>Choose...</option>
             </select>
           </div>

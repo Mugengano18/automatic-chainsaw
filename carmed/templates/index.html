@@ -76,7 +76,30 @@
           <a class="nav-item nav-link active" href="{% url 'home' %}">Home</a>
           <a class="nav-item nav-link" href="#about">About</a>
           <a class="nav-item nav-link" href="#service">Service</a>
+          <a class="nav-item nav-link" href="{% url 'contact' %}">Contact</a>
           {% if user.is_authenticated %}
+          <div class="nav-item nav-link p-0 mt-4 my-2">
+            <div class="btn-group">
+              <i class="bi bi-person-circle"></i>
+              <ul class="dropdown-menu" data-bs-toggle="dropdown">
+                <!-- Button trigger modal -->
+                {% if user.is_authenticated %}
+                <li>
+                  <a
+                    class="dropdown-item"
+                    data-bs-target="#exampleModal"
+                    data-bs-toggle="modal"
+                    href="#"
+                    >{{request.user.first_name}}</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                </li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
           <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
           {% else %}
           <div class="nav-item dropdown">
@@ -87,7 +110,7 @@
               >Register</a
             >
             <div class="dropdown-menu shadow-sm m-0">
-              <a class="dropdown-item" href="{% url 'signup' %}"
+              <a class="dropdown-item" href="{% url 'login' %}"
                 >You need help?</a
               >
               <a class="dropdown-item" href="{% url 'shop_register' %}"
@@ -96,7 +119,6 @@
             </div>
           </div>
           {% endif %}
-          <a class="nav-item nav-link" href="{% url 'contact' %}">Contact</a>
         </div>
         <div class="h-100 d-lg-inline-flex align-items-center d-none">
           <a
@@ -175,7 +197,8 @@
                 arrive on schedule.
               </p>
               <p class="mb-4">
-                We offer a variety of services to our clients, including the following:
+                We offer a variety of services to our clients, including the
+                following:
               </p>
               <div class="d-flex align-items-center mb-2">
                 <i
@@ -187,13 +210,19 @@
                 <i
                   class="fa fa-check bg-light text-warning btn-sm-square rounded-circle me-1 fw-bold"
                 ></i>
-                <span>We assist our clients in locating the nearest car repair facility.</span>
+                <span
+                  >We assist our clients in locating the nearest car repair
+                  facility.</span
+                >
               </div>
               <div class="d-flex align-items-center mb-4">
                 <i
                   class="fa fa-check bg-light text-warning btn-sm-square rounded-circle me-1 fw-bold"
                 ></i>
-                <span>We assist Business owners to register their Business to our site</span>
+                <span
+                  >We assist Business owners to register their Business to our
+                  site</span
+                >
               </div>
             </div>
           </div>
@@ -224,10 +253,8 @@
                 src="{% static 'img/car-service.png'%}"
               />
               <h5 class="mb-3">REPAIR SHOP</h5>
-              <p>
-                In case of an emergency, get help fast.
-              </p>
-              <a href="{% url 'map' %}"
+              <p>In case of an emergency, get help fast.</p>
+              <a href="{% url 'services' %}"
                 >Find More <i class="fa fa-arrow-right ms-2"></i
               ></a>
             </div>
@@ -241,9 +268,10 @@
               />
               <h5 class="mb-3">Gas Station</h5>
               <p>
-                In case of an emergency, stop at the nearest petrol station on your way.
+                In case of an emergency, stop at the nearest petrol station on
+                your way.
               </p>
-              <a href="{% url 'map' %}"
+              <a href="{% url 'services' %}"
                 >Find More <i class="fa fa-arrow-right ms-2"></i
               ></a>
             </div>
@@ -269,8 +297,8 @@
                 style="width: 45px"
               />Car Medic
             </h1>
-            <span
-              > We make it more convenient for individuals to travel by giving
+            <span>
+              We make it more convenient for individuals to travel by giving
               them access to any repair shop or petrol station nearby, based on
               where they've arrived while driving.</span
             >
@@ -286,8 +314,12 @@
           </div>
           <div class="col-lg-3 col-md-6">
             <h5 class="mb-4">Our Services</h5>
-            <a class="btn btn-link" href="{% url 'map' %}">Request a mechanic</a>
-            <a class="btn btn-link" href="{% url 'map' %}">Nearby gas station</a>
+            <a class="btn btn-link" href="{% url 'map' %}"
+              >Request a mechanic</a
+            >
+            <a class="btn btn-link" href="{% url 'map' %}"
+              >Nearby gas station</a
+            >
           </div>
           <div class="col-lg-3 col-md-6">
             <h5 class="mb-4">Quick Links</h5>

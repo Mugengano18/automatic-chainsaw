@@ -10,8 +10,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, reverse
 from folium import plugins
 
-from carmed.forms import Retail_info, SearchForm
-from carmed.models import Business, Search
+from carmed.forms import Retail_info
+from carmed.models import Business
 
 
 def home(request):
@@ -30,7 +30,7 @@ def signUser(request):
         pswd1 = request.POST['pswd1']
         pswd2 = request.POST['pswd2']
 
-        user_create = User.objects.create_user(username, lname, pswd1)
+        user_create = User.objects.create_user(username, "", pswd1)
         user_create.first_name = fname
         user_create.last_name = lname
 
@@ -54,7 +54,7 @@ def loginUser(request):
         user_login = authenticate(username=phone, password=pswd1)
         print(user_login)
 
-        if user_login:
+        if user_login is not None:
             login(request, user_login)
             return redirect('home')
             next = request.POST.get('next', '/')
@@ -151,16 +151,6 @@ def map_location(request):
     # make requests from ip-api.com
     res = requests.get('http://ip-api.com/json/' + ip_data["ip"])
     data_one = json.loads(res.text)
-    if request.method == 'POST':
-        form = SearchForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('/map')
-    else:
-        form = SearchForm()
-    address = Search.objects.all().last()
-    location = geocoder.osm(address)
-    country = location.country
     map1 = folium.Map(location=[-1.952183, 30.054957], zoom_start=10, tiles='OpenStreetMap')
     folium.Marker([-1.9499, 30.0588], tooltip='Click for more', popup=data_one["city"],
                   icon=folium.Icon(color="red", icon='home', prefix='fa')).add_to(map1)
@@ -186,10 +176,9 @@ def map_location(request):
 
     context = {
         'map1': map1,
-        'form': form,
     }
     return render(request, "map.html", context)
 
 
 def business_details(request):
-    return render(request, "details.html")
+    return render(request, "service_provider_dashboard.html")

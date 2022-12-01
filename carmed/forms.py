@@ -1,5 +1,5 @@
 from django import forms
-from carmed.models import Business, Search
+from carmed.models import Business
 
 
 class Retail_info(forms.ModelForm):
@@ -9,7 +9,3 @@ class Retail_info(forms.ModelForm):
                   'sector']
 
 
-class SearchForm(forms.ModelForm):
-    class Meta:
-        model = Search
-        fields = ['address']

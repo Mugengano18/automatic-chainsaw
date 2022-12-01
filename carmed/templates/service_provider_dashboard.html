@@ -7,9 +7,10 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="keywords" />
     <meta content="" name="description" />
+
     <!-- Google Web Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700&display=swap"
       rel="stylesheet"
@@ -42,8 +43,8 @@
   <body>
     <!-- Spinner Start -->
     <div
-      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
       id="spinner"
+      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
     >
       <div class="spinner-grow text-warning" role="status"></div>
     </div>
@@ -94,7 +95,9 @@
                   >
                 </li>
                 <li>
-                  <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+                  <a class="nav-item nav-link" href="{% url 'logout' %}"
+                    >Logout</a
+                  >
                 </li>
                 {% endif %}
               </ul>
@@ -138,7 +141,6 @@
     </nav>
     <!-- Navbar End -->
 
-    
     <!-- Footer Start -->
     <div
       class="container-fluid bg-light footer mt-5 pt-5 wow fadeIn"
@@ -155,8 +157,8 @@
                 style="width: 45px"
               />Car Medic
             </h1>
-            <span
-              > We make it more convenient for individuals to travel by giving
+            <span>
+              We make it more convenient for individuals to travel by giving
               them access to any repair shop or petrol station nearby, based on
               where they've arrived while driving.</span
             >
@@ -172,14 +174,18 @@
           </div>
           <div class="col-lg-3 col-md-6">
             <h5 class="mb-4">Our Services</h5>
-            <a class="btn btn-link" href="{% url 'map' %}">Request a mechanic</a>
-            <a class="btn btn-link" href="{% url 'map' %}">Nearby gas station</a>
+            <a class="btn btn-link" href="{% url 'map' %}"
+              >Request a mechanic</a
+            >
+            <a class="btn btn-link" href="{% url 'map' %}"
+              >Nearby gas station</a
+            >
           </div>
           <div class="col-lg-3 col-md-6">
             <h5 class="mb-4">Quick Links</h5>
-            <a class="btn btn-link" href="#About">About Us</a>
+            <a class="btn btn-link" href="{% url 'home' %}">About Us</a>
             <a class="btn btn-link" href="{% url 'contact' %}">Contact Us</a>
-            <a class="btn btn-link" href="#Service">Our Services</a>
+            <a class="btn btn-link" href="{% url 'home' %}">Our Services</a>
           </div>
           <div class="col-lg-3 col-md-6">
             <h5 class="mb-4">Follow Us</h5>
@@ -214,8 +220,8 @@
 
     <!-- Back to Top -->
     <a
-      class="btn btn-lg btn-warning btn-lg-square rounded-circle back-to-top"
       href="#"
+      class="btn btn-lg btn-warning btn-lg-square rounded-circle back-to-top"
       ><i class="bi bi-arrow-up"></i
     ></a>
 

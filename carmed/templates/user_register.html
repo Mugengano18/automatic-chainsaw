@@ -51,70 +51,94 @@
     </div>
     <!-- Spinner End -->
 
-   <!-- Navbar Start -->
-   <nav
-   class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5"
- >
-   <a href="index.html" class="navbar-brand d-flex align-items-center">
-     <h2 class="m-0 text-warning">
-       <img
-         class="img-fluid me-2"
-         src="{% static 'img/logo-1.png' %}"
-         alt="logo"
-         style="width: 45px"
-       />CARMEDIC
-     </h2>
-   </a>
-   <button
-     type="button"
-     class="navbar-toggler"
-     data-bs-toggle="collapse"
-     data-bs-target="#navbarCollapse"
-   >
-     <span class="navbar-toggler-icon"></span>
-   </button>
-   <div class="collapse navbar-collapse" id="navbarCollapse">
-     <div class="navbar-nav ms-auto py-4 py-lg-0">
-       <a href="{% url 'home' %}" class="nav-item nav-link ">Home</a>
-       <a href="{% url 'home' %}" class="nav-item nav-link">About</a>
-       <a href="{% url 'home' %}" class="nav-item nav-link">Service</a>
-       <div class="nav-item dropdown">
-         <a
-           href="#"
-           class="nav-link dropdown-toggle active"
-           data-bs-toggle="dropdown" 
-           >Register</a
-         >
-         <div class="dropdown-menu shadow-sm m-0">
-           <a href="{% url 'login' %}" class="dropdown-item">You need help?</a>
-           <a href="{% url 'shop_register' %}" class="dropdown-item"
-             >Register your shop or station</a
-           >
-         </div>
-       </div>
-       <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
-     </div>
-     <div class="h-100 d-lg-inline-flex align-items-center d-none">
-       <a
-         class="btn btn-square rounded-circle bg-light text-warning me-2"
-         href=""
-         ><i class="fab fa-facebook-f"></i
-       ></a>
-       <a
-         class="btn btn-square rounded-circle bg-light text-warning me-2"
-         href=""
-         ><i class="fab fa-twitter"></i
-       ></a>
-       <a
-         class="btn btn-square rounded-circle bg-light text-warning me-0"
-         href=""
-         ><i class="fab fa-linkedin-in"></i
-       ></a>
-     </div>
-   </div>
- </nav>
- <!-- Navbar End -->
-
+  <!-- Navbar Start -->
+  <nav
+  class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5"
+>
+  <a class="navbar-brand d-flex align-items-center" href="index.html">
+    <h2 class="m-0 text-warning">
+      <img
+        alt="logo"
+        class="img-fluid me-2"
+        src="{% static 'img/logo-1.png' %}"
+        style="width: 45px"
+      />CARMEDIC
+    </h2>
+  </a>
+  <button
+    class="navbar-toggler"
+    data-bs-target="#navbarCollapse"
+    data-bs-toggle="collapse"
+    type="button"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <div class="navbar-nav ms-auto py-4 py-lg-0">
+      <a class="nav-item nav-link active" href="{% url 'home' %}">Home</a>
+      <a class="nav-item nav-link" href="#about">About</a>
+      <a class="nav-item nav-link" href="#service">Service</a>
+      <a class="nav-item nav-link" href="{% url 'contact' %}">Contact</a>
+      {% if user.is_authenticated %}
+      <div class="nav-item nav-link p-0 mt-4 my-2">
+        <div class="btn-group">
+          <i class="bi bi-person-circle"></i>
+          <ul class="dropdown-menu" data-bs-toggle="dropdown">
+            <!-- Button trigger modal -->
+            {% if user.is_authenticated %}
+            <li>
+              <a
+                class="dropdown-item"
+                data-bs-target="#exampleModal"
+                data-bs-toggle="modal"
+                href="#"
+                >{{request.user.first_name}}</a
+              >
+            </li>
+            <li>
+              <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+      <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+      {% else %}
+      <div class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          data-bs-toggle="dropdown"
+          href="#"
+          >Register</a
+        >
+        <div class="dropdown-menu shadow-sm m-0">
+          <a class="dropdown-item" href="{% url 'shop_register' %}"
+            >Register as Business here</a
+          >
+        </div>
+      </div>
+      {% endif %}
+    </div>
+    <div class="h-100 d-lg-inline-flex align-items-center d-none">
+      <a
+        class="btn btn-square rounded-circle bg-light text-warning me-2"
+        href=""
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+      <a
+        class="btn btn-square rounded-circle bg-light text-warning me-2"
+        href=""
+        ><i class="fab fa-twitter"></i
+      ></a>
+      <a
+        class="btn btn-square rounded-circle bg-light text-warning me-0"
+        href=""
+        ><i class="fab fa-linkedin-in"></i
+      ></a>
+    </div>
+  </div>
+</nav>
+<!-- Navbar End -->
    
 
     <!--User register-->
@@ -132,12 +156,12 @@
           <div class="form_right_part">
             <!--uper button -->
             <div class="uper_button">
-              <button class="first signin_page">Login</button>
-              <button class="second signup_page">Sign Up</button>
+              <button class="first signin_page" onclick="location.href='{% url 'login' %}'">Login</button>
+              <button class="second signup_page" onclick="location.href='{% url 'signup' %}'">Sign Up</button>
             </div>
 
             {% for message in messages %}
-            <div class="alert alert-warning ">
+            <div class="alert alert-warning pt-4">
               <a class="close" href="{% url 'login' %}" data-dismiss="alert">×</a>
               {{ message }}
             </div>

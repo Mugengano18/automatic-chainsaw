@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from carmed.models import Business, Search
+from carmed.models import Business, Search,service_detail
 
 
 class postBusiness(admin.ModelAdmin):
@@ -10,3 +10,9 @@ class postBusiness(admin.ModelAdmin):
 
 admin.site.register(Business,postBusiness)
 admin.site.register(Search)
+admin.site.register(service_detail)
+
+
+
+# Register your models here.
+

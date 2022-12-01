@@ -11,7 +11,7 @@ from django.shortcuts import render, redirect, reverse
 from folium import plugins
 
 from carmed.forms import Retail_info, SearchForm
-from carmed.models import Business, Search
+from carmed.models import Business, Search, service_detail
 
 
 def home(request):
@@ -20,6 +20,19 @@ def home(request):
 
 def contact(request):
     return render(request, "contact.html")
+
+def service(request):
+        if request.method == 'POST':
+            name = request.POST['service_name']
+            type = request.POST['service_type']
+            description = request.POST['description']
+
+            obj = service_detail()
+            obj.name = name
+            obj.type = type
+            obj.description = description
+            obj.save()
+        return render(request, "service.html")
 
 
 def signUser(request):

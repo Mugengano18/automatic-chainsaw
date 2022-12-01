@@ -12,7 +12,7 @@ class Retail_info(forms.ModelForm):
 class ServiceForm(forms.ModelForm):
     class Meta:
         model = service_detail
-        fields = ['name','type','description']
+        fields = ['service_type','request_sender','phone_number','description']
 
 
 

@@ -11,5 +11,7 @@ urlpatterns = [
     path('logout/', views.logoutUser, name="logout"),
     path('map/', views.map_location, name="map"),
     path("details/", views.business_details, name="details"),
+    path('details/<str:pk>/', views.business_details, name="request_accept"),
+    path("request_details",views.request_det, name="req_details"),
     path("service/", views.service, name="services")
 ]

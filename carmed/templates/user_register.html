@@ -139,10 +139,10 @@
   </div>
 </nav>
 <!-- Navbar End -->
-   
+
 
     <!--User register-->
-      <div class="form_container wow fadeInUp" data-wow-delay="0.5s"">
+      <div class="form_container wow fadeInUp" data-wow-delay="0.5s">
         <div class="form_center">
           <div class="form_left_part">
             <img
@@ -156,8 +156,8 @@
           <div class="form_right_part">
             <!--uper button -->
             <div class="uper_button">
-              <button class="first signin_page" onclick="location.href='{% url 'login' %}'">Login</button>
-              <button class="second signup_page" onclick="location.href='{% url 'signup' %}'">Sign Up</button>
+              <button class="first signin_page" onclick="location.href='{% url 'login' %}'" >Login</button>
+              <button class="second signup_page">Sign Up</button>
             </div>
 
             {% for message in messages %}
@@ -207,6 +207,7 @@
               action="{% url 'signup' %}"
               class="needs-validation"
               method="POST"
+              id="sign_up"
             >
               {% csrf_token %}
               <div class="signin_signin">
@@ -231,7 +232,7 @@
                   <input
                     name="phone"
                     type="tel"
-                    placeholder="0785675567"
+                    placeholder="Phone_Number with Format 0785675567"
                     pattern="[0-9]{10}"
                     required
                   />

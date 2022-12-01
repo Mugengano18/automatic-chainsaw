@@ -1,5 +1,4 @@
 import folium
-import geocoder
 import json
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -8,10 +7,10 @@ from django.contrib.auth.models import User
 import requests
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, reverse
-from folium import plugins
+from django.contrib.auth.forms import UserCreationForm
 
 from carmed.forms import Retail_info
-from carmed.models import Business, service_detail
+from carmed.models import Business, service_detail  
 
 
 def home(request):
@@ -21,18 +20,6 @@ def home(request):
 def contact(request):
     return render(request, "contact.html")
 
-def service(request):
-        if request.method == 'POST':
-            name = request.POST['service_name']
-            type = request.POST['service_type']
-            description = request.POST['description']
-
-            obj = service_detail()
-            obj.name = name
-            obj.type = type
-            obj.description = description
-            obj.save()
-        return render(request, "service.html")
 
 
 def signUser(request):
@@ -43,7 +30,7 @@ def signUser(request):
         pswd1 = request.POST['pswd1']
         pswd2 = request.POST['pswd2']
 
-        user_create = User.objects.create_user(username, "", pswd1)
+        user_create = User.objects.create_user(username," ", pswd1)
         user_create.first_name = fname
         user_create.last_name = lname
 
@@ -51,7 +38,7 @@ def signUser(request):
 
         messages.success(request, "Successfully created account.")
 
-        return redirect('home')
+        return redirect('login')
     return render(request, 'user_register.html')
 
 
@@ -83,6 +70,39 @@ def logoutUser(request):
     messages.success(request, 'Logged out successfully!')
     return redirect('login')
 
+@login_required(login_url='login')
+def service(request):
+        if request.method == 'POST':
+            request_sender =request.POST.get('request_by')
+            phone_n = request.POST.get('number')
+            service_type = request.POST.get('service_type')
+            description = request.POST.get('description')
+            obj = service_detail()
+            obj.service_type = service_type
+            obj.request_sender = request_sender
+            obj.phone_number = phone_n
+            obj.description = description
+            print(service_type)
+            print(description)
+            obj.save()
+
+            return redirect('req_details')
+        return render(request, "service.html")
+
+
+def request_det(request):
+
+    return render(request,"request_details.html")
+
+
+
+
+
+
+
+
+
+
 
 def shop_register(request):
     if request.method == 'POST':
@@ -99,8 +119,8 @@ def shop_register(request):
                        city=request.POST['inputCity'], district=request.POST["inputDistrict"],
                        sector=request.POST["inputSector"])
         ret.save()
-        return HttpResponse('Successfully registered your business')
-
+        # return HttpResponse('Successfully registered your business')
+        return redirect('details')
     else:
         form = Retail_info()
 
@@ -194,4 +214,25 @@ def map_location(request):
 
 
 def business_details(request):
-    return render(request, "service_provider_dashboard.html")
+    if request.method == 'POST':
+        stat_id = request.POST.get('s_id')
+        stat_id_2 = request.POST.get('f_id')
+        print(stat_id_2)
+        service_detail.objects.filter(services_id=stat_id_2).update(
+            status="2")
+        service_detail.objects.filter(services_id=stat_id_2).update(
+            status="3")
+    request_list = service_detail.objects.all()
+    status_open = service_detail.objects.filter(status = "1")
+    status_active = service_detail.objects.filter(status = "2")
+    status_finished = service_detail.objects.filter(status = "3")
+    print(status_finished)
+    context = {'info': request_list,"status_open":status_open,"status_active":status_active,"status_finished":status_finished}
+    return render(request, "service_provider_dashboard.html",context)
+
+def business_details_id(request, pk):
+    service_one = service_detail.objects.get(id=pk)
+
+    return render(request, 'service_provider_dashboard.html', {'service': service_one})
+
+

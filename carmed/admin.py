@@ -8,5 +8,10 @@ class postBusiness(admin.ModelAdmin):
     list_display = ['business_id', 'business_name', 'business_type']
     ordering = ['business_id']
 
+admin.site.register(Business,postBusiness)
+admin.site.register(service_detail)
 
-admin.site.register(Business, postBusiness)
+
+
+# Register your models here.
+

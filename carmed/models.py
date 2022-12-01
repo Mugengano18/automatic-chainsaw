@@ -23,3 +23,12 @@ class Business(models.Model):
 
 
 
+class service_detail(models.Model):
+
+    services_id = models.IntegerField(primary_key=True,auto_created=True)
+    name = models.CharField(max_length=30, default='0', null=False)
+    type = models.CharField(max_length=20,default='0',null=False)
+    description = models.CharField(max_length=30, default='0', null=False)
+
+    def __str__(self):
+        return self.name
